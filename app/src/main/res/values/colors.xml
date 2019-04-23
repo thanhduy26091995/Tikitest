@@ -6,4 +6,9 @@
 
     <color name="color_utility_service">#003873</color>
     <color name="color_white">#FFF</color>
+    <color name="color_green_bold">#005B55</color>
+    <color name="color_yellow_bold">#906000</color>
+    <color name="color_purple_bold">#530A90</color>
+    <color name="color_blue_bold">#006C81</color>
+    <color name="color_red_bold">#90241D</color>
 </resources>

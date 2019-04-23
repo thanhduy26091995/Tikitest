@@ -1,10 +1,10 @@
 package com.zyncas.tikitest
 
 import android.app.Activity
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class KeyWordAdapter(val listKeyWord: List<String>, val activity: Activity) :
@@ -24,10 +24,41 @@ class KeyWordAdapter(val listKeyWord: List<String>, val activity: Activity) :
 
     override fun onBindViewHolder(holder: KeyWordViewHolder, position: Int) {
         val keyword = listKeyWord[position]
-        holder.mTvKeyWord.text = seperateKeyword(keyword.trim())
+        holder.mTvKeyWord.text = separateKeyword(keyword.trim())
+        val randomNumber = (0..10).random()
+        holder.mTvKeyWord.setBackgroundColor(ContextCompat.getColor(activity, generateRandomBackground(randomNumber)))
     }
 
-    private fun seperateKeyword(keyword: String): String {
+    /**
+     * Create a random background
+     */
+    private fun generateRandomBackground(number: Int): Int {
+        when (number) {
+            1 -> {
+                return R.color.color_utility_service
+            }
+            2 -> {
+                return R.color.color_green_bold
+            }
+            3 -> {
+                return R.color.color_yellow_bold
+            }
+            4 -> {
+                return R.color.color_purple_bold
+            }
+            5 -> {
+                return R.color.color_blue_bold
+            }
+            else -> {
+                return R.color.color_red_bold
+            }
+        }
+    }
+
+    /**
+     * get a keyword after separate
+     */
+    private fun separateKeyword(keyword: String): String {
         val numberOfText = keyword.split(" ")
         var length = 0
         var pivot = 0
@@ -44,6 +75,9 @@ class KeyWordAdapter(val listKeyWord: List<String>, val activity: Activity) :
         return keyword
     }
 
+    /**
+     * consume a text after separate
+     */
     private fun consumeText(pivot: Int, data: List<String>): String {
         var result = ""
         for (i in 0 until data.size) {
@@ -55,6 +89,9 @@ class KeyWordAdapter(val listKeyWord: List<String>, val activity: Activity) :
         return result
     }
 
+    /**
+     * Get a length of rest text
+     */
     private fun calculateLengthRest(startPivot: Int, data: List<String>): Int {
         var lengthSum = 0
         for (i in startPivot until data.size) {

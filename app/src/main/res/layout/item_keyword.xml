@@ -2,11 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
+                                                   android:background="@drawable/background_border"
                                                    android:layout_width="wrap_content"
                                                    android:layout_height="wrap_content"
                                                    android:layout_marginRight="10dp">
 
     <TextView
+            android:textColor="@color/color_white"
+            android:lines="2"
             android:gravity="center"
             android:id="@+id/tv_keyword"
             android:layout_width="wrap_content"
@@ -14,5 +17,6 @@
             android:padding="10dp"
             tools:text="Vé máy bay"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_icon"/>
+            app:layout_constraintTop_toTopOf="parent"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>
